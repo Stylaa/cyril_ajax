@@ -96,11 +96,11 @@ function str_replace (search, replace, subject, count) {
 							
 							// show
 							if( item.action == "show") {
-								jQuery(item.selector).show();
+								jQuery(item).removeClass( 'hide' );
 							}
 							// hide
 							if( item.action == "hide") {
-								jQuery(item.selector).hide();
+								jQuery(item).addClass( 'hide' );
 							}
 							
 							
