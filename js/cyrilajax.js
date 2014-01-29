@@ -103,6 +103,17 @@ function str_replace (search, replace, subject, count) {
 								jQuery(item.selector).hide();
 							}
 							
+							
+							// addClass
+							if( item.action == "addclass") {
+								jQuery(item.selector).addClass( item.data );
+							}
+							// removeClass
+							if( item.action == "removeclass") {
+								jQuery(item.selector).removeClass( item.data );
+							}
+							
+							
 							// enable
 							if( item.action == "enable") {
 								jQuery(item.selector)
