@@ -39,18 +39,6 @@ function str_replace (search, replace, subject, count) {
   return sa ? s : s[0];
 }
 
-jQuery.postJSON = function(url, data, callback) {
-    return jQuery.ajax({
-        'type': 'POST',
-        'url': url,
-        'contentType': 'application/json',
-        'data': $.toJSON(data),
-        'dataType': 'json',
-        'success': callback
-    });
-};
-
-
 (function($){
  	$.fn.extend({ 
 	
@@ -77,7 +65,7 @@ jQuery.postJSON = function(url, data, callback) {
 				jQuery(item).show();
 			});
 			
-			jQuery.postJSON(
+			jQuery.post(
 				options.url,
 				options.data,
 				function(json) {
@@ -161,7 +149,7 @@ jQuery.postJSON = function(url, data, callback) {
 					}
 					
 				}
-			);
+			, 'json');
 			
 			
     	}
