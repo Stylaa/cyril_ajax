@@ -44,7 +44,7 @@ jQuery.postJSON = function(url, data, callback) {
         'type': 'POST',
         'url': url,
         'contentType': 'application/json',
-        'data': jQuery.toJSON(data),
+        'data': $.toJSON(data),
         'dataType': 'json',
         'success': callback
     });
