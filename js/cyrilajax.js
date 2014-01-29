@@ -59,10 +59,10 @@ function str_replace (search, replace, subject, count) {
 			
 			// Load Show/Hide
 			jQuery.each(options.load_hide, function(index, item) {
-				jQuery(item).hide();
+				jQuery(item).addClass( 'hide' );
 			});
 			jQuery.each(options.load_show, function(index, item) {
-				jQuery(item).show();
+				jQuery(item).removeClass( 'hide' );
 			});
 			
 			jQuery.post(
@@ -148,10 +148,10 @@ function str_replace (search, replace, subject, count) {
 					
 					// Load Show/Hide | Reverse to Reset
 					jQuery.each(options.load_hide, function(index, item) {
-						jQuery(item).show();
+						jQuery(item).removeClass( 'hide' );
 					});
 					jQuery.each(options.load_show, function(index, item) {
-						jQuery(item).hide();
+						jQuery(item).addClass( 'hide' );
 					});
 					
 					// Loop
