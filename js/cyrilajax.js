@@ -39,6 +39,16 @@ function str_replace (search, replace, subject, count) {
   return sa ? s : s[0];
 }
 
+jQuery.postJSON = function(url, data, callback) {
+    return jQuery.ajax({
+        'type': 'POST',
+        'url': url,
+        'contentType': 'application/json',
+        'data': jQuery.toJSON(data),
+        'dataType': 'json',
+        'success': callback
+    });
+};
 
 
 (function($){
@@ -67,7 +77,7 @@ function str_replace (search, replace, subject, count) {
 				jQuery(item).show();
 			});
 			
-			jQuery.getJSON(
+			jQuery.postJSON(
 				options.url,
 				options.data,
 				function(json) {
