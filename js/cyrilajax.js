@@ -69,8 +69,18 @@ function str_replace (search, replace, subject, count) {
 				options.url,
 				options.data,
 				function(json) {
-					/* -- Process JSON Commands -- */
 					
+					/* --- after everyhing is processed --- */
+					
+					// Load Show/Hide | Reverse to Reset
+					jQuery.each(options.load_hide, function(index, item) {
+						jQuery(item).removeClass( 'hide' );
+					});
+					jQuery.each(options.load_show, function(index, item) {
+						jQuery(item).addClass( 'hide' );
+					});
+					
+					/* -- Process JSON Commands -- */
 					if( json.ajax_command !== undefined )
 					{
 						// glob
@@ -143,17 +153,7 @@ function str_replace (search, replace, subject, count) {
 							
 						});
 					}
-					
-					/* --- after everyhing is processed --- */
-					
-					// Load Show/Hide | Reverse to Reset
-					jQuery.each(options.load_hide, function(index, item) {
-						jQuery(item).removeClass( 'hide' );
-					});
-					jQuery.each(options.load_show, function(index, item) {
-						jQuery(item).addClass( 'hide' );
-					});
-					
+
 					// Loop
 					if( options.loop == true ) {
 						setTimeout( function(){ jQuery().CyrilAjax(options); }, options.timeout );
